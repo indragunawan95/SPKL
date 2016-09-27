@@ -1,5 +1,6 @@
 package com.indragunawan.sentrapkl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,8 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -86,6 +90,17 @@ public class MenuActivity extends AppCompatActivity
 
         ListView listView = (ListView) findViewById(R.id.mobile_list);
         listView.setAdapter(customList);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent intent = new Intent(MenuActivity.this, ChoosePKLActivity.class);
+                String message = "abc";
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
