@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/label"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="10dip"
-    android:textSize="16dip"
-    android:textStyle="bold" >
-</TextView>
+
+
+    <!--<TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:id="@+id/label"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="10dip"-->
+        <!--android:textSize="16dip"-->
+        <!--android:textStyle="bold">-->
+    <!--</TextView>-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:background="#00000000"
+android:orientation="horizontal"
+android:padding="5dip" >
+<!-- ListRow Left side Thumbnail image -->
+
+<LinearLayout
+    android:id="@+id/thumbnail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginRight="5dip"
+    android:padding="3dip" >
+    <ImageView
+        android:id="@+id/list_image"
+        android:contentDescription="@string/app_name"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/cingur" />
+</LinearLayout>
+<!-- Rightend Arrow -->
+<ImageView
+    android:id="@+id/imageView"
+    android:contentDescription="@string/app_name"
+    android:layout_width="20dip"
+    android:layout_height="20dip"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:src="@drawable/arrow" />
+<!-- City-->
+<TextView
+    android:id="@+id/text_besar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginLeft="75dip"
+    android:layout_centerVertical="true"
+    android:paddingBottom ="10dip"
+    android:text="Cuaca"
+    android:textColor="#040404"
+    android:textSize="25dip"
+    android:textStyle="bold"
+    android:typeface="sans" />
+<!-- Weather Information-->
+<TextView
+    android:id="@+id/text_kecil"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/text_besar"
+    android:layout_alignLeft="@+id/text_besar"
+    android:paddingTop="5dip"
+    android:layout_centerHorizontal="true"
+    android:text="Cuaca"
+    android:textColor="#343434"
+    android:textSize="15dip" />
+</RelativeLayout>

@@ -18,7 +18,52 @@ import android.widget.ListView;
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
+    //String[] mobileArray = {"Android","IPhone","Windows Mobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
+    private ListView listView;
+    private String names[] = {
+            "HTML",
+            "CSS",
+            "Java Script",
+            "Wordpress",
+            "HTML",
+            "CSS",
+            "Java Script",
+            "Wordpress"
+    };
+
+    private String desc[] = {
+            "The Powerful Hypter Text Markup Language 5",
+            "Cascading Style Sheets",
+            "Code with Java Script",
+            "Manage your content with Wordpress",
+            "The Powerful Hypter Text Markup Language 5",
+            "Cascading Style Sheets",
+            "Code with Java Script",
+            "Manage your content with Wordpress"
+    };
+
+    private Integer image1id[] = {
+            R.drawable.cingur,
+            R.drawable.cingur,
+            R.drawable.cingur,
+            R.drawable.cingur,
+            R.drawable.cingur,
+            R.drawable.cingur,
+            R.drawable.cingur,
+            R.drawable.cingur
+    };
+
+    private Integer image2id[] = {
+            R.drawable.arrow,
+            R.drawable.arrow,
+            R.drawable.arrow,
+            R.drawable.arrow,
+            R.drawable.arrow,
+            R.drawable.arrow,
+            R.drawable.arrow,
+            R.drawable.arrow
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +80,12 @@ public class MenuActivity extends AppCompatActivity
             }
         });
 
+        CustomList customList = new CustomList(this, names, desc, image1id, image2id);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, mobileArray);
+        //ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, mobileArray);
 
         ListView listView = (ListView) findViewById(R.id.mobile_list);
-        listView.setAdapter(adapter);
+        listView.setAdapter(customList);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
